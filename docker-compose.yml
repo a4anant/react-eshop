@@ -1,0 +1,9 @@
+
+services:
+
+  web-nginx-react:
+    container_name: ngixreactapp
+    build:
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - 80:80
