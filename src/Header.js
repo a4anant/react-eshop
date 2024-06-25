@@ -3,6 +3,7 @@ import './Header.css';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import SearchIcon from '@mui/icons-material/Search';
+import { Outlet, Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -10,8 +11,10 @@ function Header() {
       <div className="row">
         <div className="col-3">
           <div className="header__logo">
-            <StorefrontIcon className="header__logoImage" fontSize="large" />
-            <h3 className="header__logoTitle">eSHOP</h3>
+              <Link className="text-decoration-none" to="/">
+                  <StorefrontIcon className="header__logoImage d-inline align-middle" fontSize="large" />
+                  <h3 className="header__logoTitle d-inline align-middle">eSHOP</h3>
+              </Link>
           </div>
         </div>
 
@@ -33,25 +36,28 @@ function Header() {
           <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
               <div className="navbar-collapse" id="navbarText">
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0 column-gap-3">
-                  <li className="nav-item">
-                    <span className="nav__itemLineOne clearfix">Hello Guest</span>
-                    <span className="nav__itemLineTwo">Sign In</span>
-                  </li>
-                  <li className="nav-item">
-                    <span className="nav__itemLineOne clearfix">Your</span>
-                    <span className="nav__itemLineTwo">Shop</span>
-                  </li>
-                  <li className="nav-item itemBasket">
-                    <ShoppingBasketIcon />
-                    <span className="nav__itemLineTwo">0</span>
-                  </li>
-                </ul>
+                  <ul className="navbar-nav me-auto mb-2 mb-lg-0 column-gap-3">
+                    <li className="nav-item">
+                      <span className="nav__itemLineOne clearfix">Hello Guest</span>
+                      <span className="nav__itemLineTwo">Sign In</span>
+                    </li>
+                    <li className="nav-item">
+                      <span className="nav__itemLineOne clearfix">Your</span>
+                      <span className="nav__itemLineTwo">Shop</span>
+                    </li>
+                    <li className="nav-item itemBasket">                    
+                      <Link className="text-decoration-none" to="checkout">
+                        <ShoppingBasketIcon />
+                        <span className="nav__itemLineTwo">0</span>
+                      </Link>
+                    </li>
+                  </ul>
               </div>
             </div>
           </nav>
         </div>
       </div>
+      <Outlet />
     </div>
   );
 }
