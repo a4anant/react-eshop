@@ -4,8 +4,12 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import SearchIcon from '@mui/icons-material/Search';
 import { Outlet, Link } from "react-router-dom";
+import { useStateContext } from './StateProvider';
 
 function Header() {
+
+  const initialState = useStateContext();
+
   return (
     <div className="header container mx-auto p-2">
       <div className="row">
@@ -48,7 +52,7 @@ function Header() {
                     <li className="nav-item itemBasket">                    
                       <Link className="text-decoration-none" to="checkout">
                         <ShoppingBasketIcon />
-                        <span className="nav__itemLineTwo">0</span>
+                        <span className="nav__itemLineTwo">{initialState.basket.length}</span>
                       </Link>
                     </li>
                   </ul>
