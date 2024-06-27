@@ -31,3 +31,7 @@ export function useStateContext() {
 export function useStateDispatchContext() {
   return useContext(StateDispatchContext);
 }
+
+export function getCartTotal(basket) {
+    return (basket?.reduce((amount, item) => item.price + amount, 0));
+}

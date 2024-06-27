@@ -1,38 +1,40 @@
 import React from 'react';
-import asusProductImage from '../assets/image/asus_laptop.jpg';
-import appleProductImage from '../assets/image/apple_laptop.jpg';
 import StarRateIcon from '@mui/icons-material/StarRate';
+import { useStateDispatchContext } from '../StateProvider';
 
-function CheckoutProduct() {
+function CheckoutProduct({ id, price, image, title, rating}) {
+  
+  const dispatch = useStateDispatchContext();
+
+  const removeFromCart = () => {
+    dispatch({
+      type: "REMOVE_FROM_CART",
+      item: {
+        id: id
+      },
+    });
+
+  };
+
   return (
     <>
-    <div className="row mb-4 py-3 pt-0">
+    <div className="row mb-4 py-3 pt-0" id={id}>
         <div className="col-3">
-            <img src={asusProductImage} alt="" className="rounded img-thumbnail" />
+            <img src={image} alt="" className="rounded img-thumbnail" />
         </div>
         <div className="col-9">
             <p>
-            ASUS == TUF Gaming F17 (2022) Gaming Laptop,17.3&quot;(43.94 cms) FHD 144Hz, RTX 3050 4GB GPU, (16GB RAM /512GB)
+            {title}
             </p>
-            <p>79.85</p>
-            <p><StarRateIcon /><StarRateIcon /><StarRateIcon /><StarRateIcon /></p>
-            <button className="btn btn-primary" type="button">
-                Remove from basket
-            </button>
-        </div>
-    </div>
-
-    <div className="row mb-4 py-3">
-        <div className="col-3">
-            <img src={appleProductImage} alt="" className="rounded img-thumbnail" />
-        </div>
-        <div className="col-9">
+            <p>{price}</p>
             <p>
-            Apple ==  TUF Gaming F17 (2022) Gaming Laptop,17.3&quot;(43.94 cms) FHD 144Hz, RTX 3050 4GB GPU, (16GB RAM /512GB)
+                {
+                    Array(rating).fill().map((item, i) => (
+                        <StarRateIcon key={i} />
+                    ))
+                }
             </p>
-            <p>99.85</p>
-            <p><StarRateIcon /><StarRateIcon /><StarRateIcon /><StarRateIcon /><StarRateIcon /></p>
-            <button className="btn btn-primary" type="button">
+            <button onClick={removeFromCart} className="btn btn-primary" type="button">
                 Remove from basket
             </button>
         </div>

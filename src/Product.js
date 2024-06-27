@@ -13,7 +13,8 @@ export default function Product({id, title, price, rating, imageUrl}) {
         id: id,
         image: imageUrl,
         price: price,
-        rating: rating
+        rating: rating,
+        title: title
       },
     });
   };
