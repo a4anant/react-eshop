@@ -1,0 +1,19 @@
+You need to follow these steps to deploy this App to firebase
+
+1. Open your terminal and move to your project folder
+
+2. firebase login
+
+3. firebase init hosting
+    3.1 Follow all the steps asked by terminal
+
+4. npm run build
+
+5. firebase deploy --only hosting
+
+DONE
+
+
+Project Console: https://console.firebase.google.com/project/react-eshop-3b030/overview
+Hosting URL: https://react-eshop-3b030.web.app
+
