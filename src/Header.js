@@ -43,7 +43,9 @@ function Header() {
                   <ul className="navbar-nav me-auto mb-2 mb-lg-0 column-gap-3">
                     <li className="nav-item">
                       <span className="nav__itemLineOne clearfix">Hello Guest</span>
-                      <span className="nav__itemLineTwo">Sign In</span>
+                      <Link className="text-decoration-none" to="login">
+                        <span className="nav__itemLineTwo">Sign In</span>
+                      </Link>
                     </li>
                     <li className="nav-item">
                       <span className="nav__itemLineOne clearfix">Your</span>
