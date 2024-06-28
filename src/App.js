@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Header';
 import Home from './Home';
 import Checkout from "./component/Checkout";
+import Login from "./component/Login";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path="/" element={<Header />}>
             <Route index element={<Home />} />
             <Route path="checkout" element={<Checkout />} />
+            <Route path="login" element={<Login />} />
           </Route>
         </Routes>
       </Router>

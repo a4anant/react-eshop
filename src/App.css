@@ -1,6 +1,3 @@
-.__itemBackground {
-    background-color: #dfdcdc;
-}
-.checkout__subTotal {
-    background-color: #dfdcdc;
+.__itemBackground, .checkout__subTotal, .login__bg {
+    background-color: #f4f4f4;
 }
